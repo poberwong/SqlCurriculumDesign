@@ -19,7 +19,7 @@ public class DBInfo {
         public static String EXPORT_TABLE_NAME = "exportTable";
 
         public static String REPE_TABLE_CREATE = "CREATE TABLE"
-                + REPE_TABLE_NAME + "(barCode INTEGER PRIMARY KEY, goodsName TEXT, count TEXT, " +
+                + REPE_TABLE_NAME + "(barCode TEXT PRIMARY KEY, goodsName TEXT, count TEXT, " +
                 "manufacturer TEXT, standard TEXT, retailPrice TEXT )";
         public static String IMPORT_TABLE_CREATE = "CREATE TABLE"
                 + IMPORT_TABLE_NAME + "(seqCode INTEGER PRIMARY KEY, barCode TEXT, importPrice TEXT," +
