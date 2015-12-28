@@ -43,9 +43,10 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
         }else {
             insertRepe(new RepertoryItem());
         }
+        return false;
     }
 
-    public synchronized boolean ExportGoods()
+    public synchronized boolean ExportGoods(){return false;}
 
     /**
      * 插入一条进货记录
@@ -107,10 +108,6 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
         db.update(DBInfo.Table.REPE_TABLE_NAME, values, RepertoryItem.BAR_CODE + "= ?", new String[]{barCode});
         db.close();
     }
-
-    /**
-     * Repertory 表：增，改，查。
-     */
 
     /**
      * 根据条形码查询数据库中是否有对应的商品
