@@ -3,7 +3,7 @@ package com.pober.sqlcurriculumdesign.models;
 /**
  * Created by Bob on 15/12/25.
  */
-public class ImportItem {
+public class ImportItem implements OperateItem{
     private int seqCode;   //顺序码
     private String barCode;   //条形码
     private String importPrice;    //进价
@@ -32,11 +32,11 @@ public class ImportItem {
         this.barCode = barCode;
     }
 
-    public String getImportPrice() {
+    public String getPrice() {
         return importPrice;
     }
 
-    public void setImportPrice(String importPrice) {
+    public void setPrice(String importPrice) {
         this.importPrice = importPrice;
     }
 

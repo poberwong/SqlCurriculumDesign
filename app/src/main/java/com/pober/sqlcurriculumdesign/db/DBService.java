@@ -59,7 +59,7 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
         values.put(ImportItem.SEQ_CODE, item.getSeqCode());
         values.put(ImportItem.BAR_CODE, item.getBarCode());
         values.put(ImportItem.DATE, item.getDate());
-        values.put(ImportItem.IMPORT_PRICE, item.getImportPrice());
+        values.put(ImportItem.IMPORT_PRICE, item.getPrice());
         values.put(ImportItem.COUNT, item.getCount());
 
         db.insert(DBInfo.Table.IMPORT_TABLE_CREATE, null, values);
@@ -78,7 +78,7 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
         values.put(ExportItem.SEQ_CODE, item.getSeqCode());
         values.put(ExportItem.BAR_CODE, item.getBarCode());
         values.put(ExportItem.DATE, item.getDate());
-        values.put(ExportItem.EXPORT_PRICE, item.getExportPrice());
+        values.put(ExportItem.EXPORT_PRICE, item.getPrice());
         values.put(ExportItem.COUNT, item.getCount());
 
         db.insert(DBInfo.Table.IMPORT_TABLE_CREATE, null, values);
@@ -172,7 +172,7 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
         while(cursor.moveToNext()){
             item = new ExportItem();
             item.setBarCode(cursor.getColumnName(cursor.getColumnIndex(ExportItem.BAR_CODE)));
-            item.setExportPrice(cursor.getColumnName(cursor.getColumnIndex(ExportItem.EXPORT_PRICE)));
+            item.setPrice(cursor.getColumnName(cursor.getColumnIndex(ExportItem.EXPORT_PRICE)));
             item.setCount(cursor.getColumnName(cursor.getColumnIndex(RepertoryItem.COUNT)));
             item.setDate(cursor.getColumnName(cursor.getColumnIndex(ExportItem.DATE)));
             items.add(item);
@@ -190,7 +190,7 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
         while(cursor.moveToNext()){
             item = new ImportItem();
             item.setBarCode(cursor.getColumnName(cursor.getColumnIndex(ExportItem.BAR_CODE)));
-            item.setImportPrice(cursor.getColumnName(cursor.getColumnIndex(ExportItem.EXPORT_PRICE)));
+            item.setPrice(cursor.getColumnName(cursor.getColumnIndex(ExportItem.EXPORT_PRICE)));
             item.setCount(cursor.getColumnName(cursor.getColumnIndex(RepertoryItem.COUNT)));
             item.setDate(cursor.getColumnName(cursor.getColumnIndex(ExportItem.DATE)));
             items.add(item);
