@@ -1,25 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<android.support.v7.widget.Toolbar
-    android:id="@+id/toolbar"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="@color/colorPrimary"
-    app:theme="@style/ThemeToolbar"/>
-
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-</FrameLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeToolbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+            <com.getbase.floatingactionbutton.FloatingActionsMenu
+                android:id="@+id/multiple_actions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                fab:fab_addButtonColorNormal="@color/half_blue"
+                fab:fab_addButtonColorPressed="@color/blue"
+                fab:fab_addButtonPlusIconColor="@color/white"
+                fab:fab_labelStyle="@style/menu_labels_style"
+                android:layout_gravity="right|bottom">
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/action_query_repe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    fab:fab_icon= "@drawable/tab_home_icon"
+                    fab:fab_size="mini"
+                    fab:fab_colorNormal="@color/half_red"
+                    fab:fab_colorPressed="@color/red"
+                    fab:fab_title="库存" />
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/action_query_import"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    fab:fab_icon= "@drawable/tab_feed_icon"
+                    fab:fab_size="mini"
+                    fab:fab_colorNormal="@color/half_green"
+                    fab:fab_colorPressed="@color/green"
+                    fab:fab_title="进货" />
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/action_query_export"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    fab:fab_icon= "@drawable/tab_explore_icon"
+                    fab:fab_size="mini"
+                    fab:fab_colorNormal="@color/half_blue"
+                    fab:fab_colorPressed="@color/blue"
+                    fab:fab_title="售货" />
+
+            </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+    </FrameLayout>
 </LinearLayout>

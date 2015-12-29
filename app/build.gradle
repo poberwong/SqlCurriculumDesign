@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "22.0.1"
 
     defaultConfig {
         applicationId "com.pober.sqlcurriculumdesign"
@@ -26,4 +26,5 @@ dependencies {
     compile 'com.android.support:design:22.2.1'
     compile 'com.android.support:recyclerview-v7:22.2.1'
     compile 'com.jpardogo.materialtabstrip:library:1.0.8'
+    compile 'com.getbase:floatingactionbutton:1.10.1'
 }
