@@ -33,4 +33,10 @@ public class ImportingFragment extends Fragment {
         });
         return rootView;
     }
+
+    private void resetFab(){
+        fbSubmit.setIcon(R.drawable.fab_tag_follow);
+        fbSubmit.setColorNormal(getResources().getColor(R.color.white));
+        fbSubmit.setColorPressed(getResources().getColor(R.color.half_white));
+    }
 }

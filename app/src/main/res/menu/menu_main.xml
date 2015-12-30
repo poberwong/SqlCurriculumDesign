@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/module_query"
+        android:icon="@drawable/add_tag_icon"
+        android:title="查询模块"
+        app:showAsAction="always" />
+</menu>

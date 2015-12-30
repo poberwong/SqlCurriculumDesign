@@ -31,4 +31,5 @@ dependencies {
     compile 'com.android.support:cardview-v7:22.2.1'
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
+    compile 'com.yalantis:contextmenu:1.0.5'
 }
