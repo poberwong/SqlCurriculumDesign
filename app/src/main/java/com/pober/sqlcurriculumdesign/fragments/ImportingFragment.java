@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
@@ -65,6 +64,7 @@ public class ImportingFragment extends Fragment {
                     fillWithRepeInfo(items.get(0));
                 } else {
                     isInRepe = false;
+                    resetWidget();
                 }
             }
         });
@@ -97,6 +97,16 @@ public class ImportingFragment extends Fragment {
         eTRetailPrice.setText(item.getRetailPrice());
     }
 
+    private void resetWidget(){
+        eTGoodsName.setText("");
+        eTManu.setText("");
+        eTStandard.setText("");
+        eTRetailPrice.setText("");
+        eTCount.setText("");
+        eTImportPrice.setText("");
+        eTDate.setText("");
+    }
+
     public void showSnackBar(View view, String text, int colorRes){
         Snackbar snackbar=  Snackbar.make(view, text, Snackbar.LENGTH_SHORT);
         snackbar.getView().setBackgroundColor(getResources().getColor(colorRes));
@@ -115,7 +125,7 @@ public class ImportingFragment extends Fragment {
             importItem.setCount(eTCount.getText().toString());
             importItem.setDate(eTDate.getText().toString());
         } else {
-            Toast.makeText(getActivity(), "请补全信息1111~", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "请补全信息~", Toast.LENGTH_SHORT).show();
             return;
         }
 
