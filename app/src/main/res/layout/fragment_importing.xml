@@ -11,6 +11,7 @@
     >
 
     <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_bar_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:met_floatingLabel="normal"
@@ -18,6 +19,7 @@
         />
 
     <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_goods_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:met_floatingLabel="normal"
@@ -25,6 +27,7 @@
         />
 
     <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_manu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:met_floatingLabel="normal"
@@ -32,6 +35,7 @@
         />
 
     <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_standard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:met_floatingLabel="normal"
@@ -39,6 +43,7 @@
         />
 
     <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_retail_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:met_floatingLabel="normal"
@@ -46,6 +51,7 @@
         />
 
     <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_import_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:met_floatingLabel="normal"
@@ -53,6 +59,7 @@
         />
 
     <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:met_floatingLabel="normal"
@@ -60,6 +67,7 @@
         />
 
     <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:met_floatingLabel="normal"

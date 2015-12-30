@@ -1,6 +1,5 @@
 package com.pober.sqlcurriculumdesign;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.getbase.floatingactionbutton.*;
+import com.pober.sqlcurriculumdesign.db.DBService;
 import com.pober.sqlcurriculumdesign.fragments.OperationFragment;
 import com.yalantis.contextmenu.lib.ContextMenuDialogFragment;
 import com.yalantis.contextmenu.lib.MenuObject;
@@ -23,9 +22,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements OnMenuItemClickListener {
 
+    public static DBService service ;
     private ContextMenuDialogFragment mMenuDialogFragment;
     private FragmentManager mFragmentManager;
-    private FloatingActionButton queryRepe, queryImport, queryExport;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        service = DBService.getInstance(this);
         mFragmentManager = getSupportFragmentManager();
         mFragmentManager.beginTransaction().replace(R.id.fragment_container, OperationFragment.newInstance()).commit();
 

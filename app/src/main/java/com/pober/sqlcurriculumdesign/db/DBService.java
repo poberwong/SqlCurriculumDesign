@@ -36,17 +36,23 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
         return DBService;
     }
 
-    public synchronized boolean ImportGoods(ImportItem item){
-        if (hasRepe(item.getBarCode())){//库存中有商品记录，就在加入进货表后直接更新库存数量
-            insertImport(item);
-            updateRepe(item.getBarCode(), Integer.parseInt(item.getCount()));
-        }else {
-            insertRepe(new RepertoryItem());
+    public synchronized boolean importGoods(ImportItem importItem, RepertoryItem repeItem){
+        try{
+            if (repeItem == null){//库存中有商品记录，就在加入进货表后直接更新库存数量
+                insertImport(importItem);
+                updateRepe(importItem.getBarCode(), Integer.parseInt(importItem.getCount()));
+                return true;
+            }else {
+                insertImport(importItem);
+                insertRepe(repeItem);
+                return true;
+            }
+        }catch (Exception e){
+            return false;
         }
-        return false;
     }
 
-    public synchronized boolean ExportGoods(){return false;}
+    public synchronized boolean exportGoods(){return false;}
 
     /**
      * 插入一条进货记录
