@@ -41,8 +41,7 @@ public class ImportingFragment extends Fragment {
         fbSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                submitMessage();
-                MainActivity.service.insertRepe(new RepertoryItem("1","2","2","2","2","2"));
+                submitMessage();
             }
         });
         eTBarCode.addTextChangedListener(new TextWatcher() {
@@ -61,8 +60,11 @@ public class ImportingFragment extends Fragment {
             public void afterTextChanged(Editable s) {
                 List<RepertoryItem> items = MainActivity.service.RepeQuery(RepertoryItem.BAR_CODE+ "= ?", new String[]{eTBarCode.getText().toString()});
                 if (items.size()> 0){
+                    Toast.makeText(getActivity(), items.size()+"", Toast.LENGTH_SHORT).show();
                     isInRepe = true;
                     fillWithRepeInfo(items.get(0));
+                } else {
+                    isInRepe = false;
                 }
             }
         });
@@ -103,8 +105,8 @@ public class ImportingFragment extends Fragment {
     }
 
     private void submitMessage(){
-        ImportItem importItem;
-        RepertoryItem repertoryItem;
+        ImportItem importItem = null;
+        RepertoryItem repertoryItem = null;
         if (!eTBarCode.getText().toString().isEmpty() && !eTImportPrice.getText().toString().isEmpty() && !eTCount
                 .getText().toString().isEmpty() && !eTDate.getText().toString().isEmpty()){
             importItem = new ImportItem();
@@ -113,10 +115,11 @@ public class ImportingFragment extends Fragment {
             importItem.setCount(eTCount.getText().toString());
             importItem.setDate(eTDate.getText().toString());
         } else {
-            Toast.makeText(getActivity(), "请补全信息~", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "请补全信息1111~", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        //只有未在库中时，才检查后几个控件
         if (!isInRepe && !eTBarCode.getText().toString().isEmpty() && !eTGoodsName.getText().toString().isEmpty() && !eTCount.getText().toString().isEmpty()
                 && !eTManu.getText().toString().isEmpty() && !eTStandard.getText().toString().isEmpty() && !eTRetailPrice.getText().toString().isEmpty()){
             repertoryItem = new RepertoryItem();
@@ -126,6 +129,8 @@ public class ImportingFragment extends Fragment {
             repertoryItem.setManufacturer(eTManu.getText().toString());
             repertoryItem.setStandard(eTStandard.getText().toString());
             repertoryItem.setRetailPrice(eTRetailPrice.getText().toString());
+        } else if(isInRepe){
+            repertoryItem = null;
         } else {
             Toast.makeText(getActivity(), "请补全信息~", Toast.LENGTH_SHORT).show();
             return;

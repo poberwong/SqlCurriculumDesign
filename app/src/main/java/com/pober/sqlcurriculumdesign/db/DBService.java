@@ -48,6 +48,7 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
                 return true;
             }
         }catch (Exception e){
+            e.printStackTrace();
             return false;
         }
     }
@@ -62,13 +63,12 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
         db = helper.getWritableDatabase();
         values.clear();//清空values
 
-        values.put(ImportItem.SEQ_CODE, item.getSeqCode());
         values.put(ImportItem.BAR_CODE, item.getBarCode());
         values.put(ImportItem.DATE, item.getDate());
         values.put(ImportItem.IMPORT_PRICE, item.getPrice());
         values.put(ImportItem.COUNT, item.getCount());
 
-        db.insert(DBInfo.Table.IMPORT_TABLE_CREATE, null, values);
+        db.insert(DBInfo.Table.IMPORT_TABLE_NAME, null, values);
         db.close();
     }
 
@@ -81,7 +81,6 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
         db = helper.getWritableDatabase();
         values.clear();//清空values
 
-        values.put(ExportItem.SEQ_CODE, item.getSeqCode());
         values.put(ExportItem.BAR_CODE, item.getBarCode());
         values.put(ExportItem.DATE, item.getDate());
         values.put(ExportItem.EXPORT_PRICE, item.getPrice());
@@ -135,11 +134,10 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
     }
 
     public synchronized int getRepeCount( String barCode){
-        db = helper.getReadableDatabase();
         Cursor cursor= db.query(DBInfo.Table.REPE_TABLE_NAME, new String[]{RepertoryItem.COUNT}, RepertoryItem.BAR_CODE+ "= ?",new String[]{barCode},null,null,null);
         cursor.moveToFirst();
         int result = Integer.parseInt(cursor.getString(0));
-        db.close();
+//        db.close(); //这个db一定不能关，否则返回之后，就无法继续执行update操作了
         cursor.close();
         return result;
     }
@@ -157,12 +155,12 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
         Cursor cursor= db.query(DBInfo.Table.REPE_TABLE_NAME, null, selection, selectionArgs, null, null, null);
         while(cursor.moveToNext()){
             item = new RepertoryItem();
-            item.setBarCode(cursor.getColumnName(cursor.getColumnIndex(RepertoryItem.BAR_CODE)));
-            item.setGoodsName(cursor.getColumnName(cursor.getColumnIndex(RepertoryItem.GOODS_NAME)));
-            item.setCount(cursor.getColumnName(cursor.getColumnIndex(RepertoryItem.COUNT)));
-            item.setManufacturer(cursor.getColumnName(cursor.getColumnIndex(RepertoryItem.MANUFACTURER)));
-            item.setStandard(cursor.getColumnName(cursor.getColumnIndex(RepertoryItem.STANDARD)));
-            item.setRetailPrice(cursor.getColumnName(cursor.getColumnIndex(RepertoryItem.RETAIL_PRICE)));
+            item.setBarCode(cursor.getString(cursor.getColumnIndex(RepertoryItem.BAR_CODE)));
+            item.setGoodsName(cursor.getString(cursor.getColumnIndex(RepertoryItem.GOODS_NAME)));
+            item.setCount(cursor.getString(cursor.getColumnIndex(RepertoryItem.COUNT)));
+            item.setManufacturer(cursor.getString(cursor.getColumnIndex(RepertoryItem.MANUFACTURER)));
+            item.setStandard(cursor.getString(cursor.getColumnIndex(RepertoryItem.STANDARD)));
+            item.setRetailPrice(cursor.getString(cursor.getColumnIndex(RepertoryItem.RETAIL_PRICE)));
             items.add(item);
         }
         cursor.close();
@@ -177,10 +175,11 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
         Cursor cursor= db.query(DBInfo.Table.EXPORT_TABLE_NAME, null, selection,selectionArgs,null,null,null);
         while(cursor.moveToNext()){
             item = new ExportItem();
-            item.setBarCode(cursor.getColumnName(cursor.getColumnIndex(ExportItem.BAR_CODE)));
-            item.setPrice(cursor.getColumnName(cursor.getColumnIndex(ExportItem.EXPORT_PRICE)));
-            item.setCount(cursor.getColumnName(cursor.getColumnIndex(RepertoryItem.COUNT)));
-            item.setDate(cursor.getColumnName(cursor.getColumnIndex(ExportItem.DATE)));
+            item.setSeqCode(cursor.getInt(cursor.getColumnIndex(ExportItem.SEQ_CODE)));
+            item.setBarCode(cursor.getString(cursor.getColumnIndex(ExportItem.BAR_CODE)));
+            item.setPrice(cursor.getString(cursor.getColumnIndex(ExportItem.EXPORT_PRICE)));
+            item.setCount(cursor.getString(cursor.getColumnIndex(ExportItem.COUNT)));
+            item.setDate(cursor.getString(cursor.getColumnIndex(ExportItem.DATE)));
             items.add(item);
         }
         cursor.close();
@@ -192,13 +191,14 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
         List<ImportItem> items = new ArrayList<>();
         ImportItem item;
         db = helper.getReadableDatabase();
-        Cursor cursor= db.query(DBInfo.Table.EXPORT_TABLE_NAME, null, selection,selectionArgs,null,null,null);
+        Cursor cursor= db.query(DBInfo.Table.IMPORT_TABLE_NAME, null, selection,selectionArgs,null,null,null);
         while(cursor.moveToNext()){
             item = new ImportItem();
-            item.setBarCode(cursor.getColumnName(cursor.getColumnIndex(ExportItem.BAR_CODE)));
-            item.setPrice(cursor.getColumnName(cursor.getColumnIndex(ExportItem.EXPORT_PRICE)));
-            item.setCount(cursor.getColumnName(cursor.getColumnIndex(RepertoryItem.COUNT)));
-            item.setDate(cursor.getColumnName(cursor.getColumnIndex(ExportItem.DATE)));
+            item.setSeqCode(cursor.getInt(cursor.getColumnIndex(ImportItem.SEQ_CODE)));
+            item.setBarCode(cursor.getString(cursor.getColumnIndex(ImportItem.BAR_CODE)));
+            item.setPrice(cursor.getString(cursor.getColumnIndex(ImportItem.IMPORT_PRICE)));
+            item.setCount(cursor.getString(cursor.getColumnIndex(ImportItem.COUNT)));
+            item.setDate(cursor.getString(cursor.getColumnIndex(ImportItem.DATE)));
             items.add(item);
         }
         cursor.close();

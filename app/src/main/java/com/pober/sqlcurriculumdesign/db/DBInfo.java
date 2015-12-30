@@ -22,10 +22,10 @@ public class DBInfo {
                 + REPE_TABLE_NAME + " (barCode TEXT PRIMARY KEY, goodsName TEXT, count TEXT, " +
                 "manufacturer TEXT, standard TEXT, retailPrice TEXT )";
         public static String IMPORT_TABLE_CREATE = "CREATE TABLE "
-                + IMPORT_TABLE_NAME + " (seqCode INTEGER PRIMARY KEY, barCode TEXT, importPrice TEXT, " +
+                + IMPORT_TABLE_NAME + " (seqCode INTEGER PRIMARY KEY AUTO_INCREMENT, barCode TEXT, importPrice TEXT, " +
                 "count TEXT, date TEXT, FOREIGN KEY (barCode) REFERENCES repertoryTable(barCode) )";
         public static String EXPORT_TABLE_CREATE = "CREATE TABLE "
-                + EXPORT_TABLE_NAME + " (seqCode INTEGER PRIMARY KEY, barCode TEXT, exportPrice TEXT, " +
+                + EXPORT_TABLE_NAME + " (seqCode INTEGER PRIMARY KEY AUTO_INCREMENT, barCode TEXT, exportPrice TEXT, " +
                 "count TEXT, date TEXT, FOREIGN KEY (barCode) REFERENCES repertoryTable(barCode) )";
 
     }
