@@ -21,15 +21,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(toolbar);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, OperationFragment.newInstance()).commit();
 
-        queryRepe = (FloatingActionButton) findViewById(R.id.action_query_repe);
+/*        queryRepe = (FloatingActionButton) findViewById(R.id.action_query_repe);
         queryImport = (FloatingActionButton) findViewById(R.id.action_query_import);
-        queryExport = (FloatingActionButton) findViewById(R.id.action_query_export);
+        queryExport = (FloatingActionButton) findViewById(R.id.action_query_export);*/
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.action_query_repe:{
+           /* case R.id.action_query_repe:{
 
             }break;
             case R.id.action_query_import:{
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }break;
             case R.id.action_query_export:{
 
-            }
+            }*/
         }
     }
 }

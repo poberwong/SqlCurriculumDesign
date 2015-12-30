@@ -1,6 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:padding="40dp"
+    android:orientation="vertical">
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:met_floatingLabel="normal"
+        android:hint="条形码"
+        />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:met_floatingLabel="normal"
+        android:hint="销售数量"
+        android:singleLine="true"
+        />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="8dp"
+        android:layout_margin="25dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_goods_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="17sp"
+                android:text="商品名称 :"
+                />
+
+            <TextView
+                android:id="@+id/tv_export_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="17sp"
+                android:text="零售价 :"
+                />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="17sp"
+                android:text="日期 :"
+                />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <com.dd.CircularProgressButton
+        android:id="@+id/cb_account"
+        android:layout_width="196dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:cpb_cornerRadius="48dp"
+        app:cpb_iconComplete="@drawable/ic_action_accept"
+        app:cpb_iconError="@drawable/ic_action_cancel"
+        app:cpb_textIdle="结 账" />
+
+    <com.getbase.floatingactionbutton.AddFloatingActionButton
+        android:id="@+id/action_add_onece"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="right|bottom"
+        fab:fab_plusIconColor="@color/white"
+        fab:fab_colorNormal="@color/half_blue"
+        fab:fab_colorPressed="@color/blue"/>
 
 </LinearLayout>
