@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
         List<MenuObject> menuObjects = new ArrayList<>();
 
         MenuObject close = new MenuObject("取消");
-        close.setResource(R.drawable.ic_action_cancel);
+        close.setResource(R.drawable.icon_back);
         close.setBgColor(getResources().getColor(R.color.half_red));
 
         MenuObject repeQuery = new MenuObject("库存查询");

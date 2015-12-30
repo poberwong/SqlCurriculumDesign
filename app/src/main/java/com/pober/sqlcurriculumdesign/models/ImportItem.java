@@ -16,6 +16,16 @@ public class ImportItem implements OperateItem{
     public static final String DATE= "date";
     public static final String COUNT= "count";
 
+    public ImportItem(String barCode, String importPrice, String date, String count) {
+        this.barCode = barCode;
+        this.importPrice = importPrice;
+        this.date = date;
+        this.count = count;
+    }
+
+    public ImportItem() {
+    }
+
     public int getSeqCode() {
         return seqCode;
     }

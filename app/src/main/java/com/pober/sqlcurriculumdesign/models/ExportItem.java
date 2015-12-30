@@ -16,6 +16,16 @@ public class ExportItem implements OperateItem{
     public static final String DATE= "date";
     public static final String COUNT= "count";
 
+    public ExportItem(String barCode, String exportPrice, String date, String count) {
+        this.barCode = barCode;
+        this.exportPrice = exportPrice;
+        this.date = date;
+        this.count = count;
+    }
+
+    public ExportItem() {
+    }
+
     public int getSeqCode() {
         return seqCode;
     }

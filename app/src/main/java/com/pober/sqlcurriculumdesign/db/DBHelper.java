@@ -16,8 +16,8 @@ public class DBHelper extends SQLiteOpenHelper{
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
 		db.execSQL(DBInfo.Table.REPE_TABLE_CREATE);//库存表
-		db.execSQL(DBInfo.Table.EXPORT_TABLE_CREATE);//出货表
 		db.execSQL(DBInfo.Table.IMPORT_TABLE_CREATE);//进货表
+		db.execSQL(DBInfo.Table.EXPORT_TABLE_CREATE);//出货表
 	}
 
 	@Override

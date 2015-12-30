@@ -41,7 +41,8 @@ public class ImportingFragment extends Fragment {
         fbSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submitMessage();
+//                submitMessage();
+                MainActivity.service.insertRepe(new RepertoryItem("1","2","2","2","2","2"));
             }
         });
         eTBarCode.addTextChangedListener(new TextWatcher() {

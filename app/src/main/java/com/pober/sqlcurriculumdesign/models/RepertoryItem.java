@@ -19,6 +19,18 @@ public class RepertoryItem {
     public static final String STANDARD= "standard";
     public static final String RETAIL_PRICE= "retailPrice";
 
+    public RepertoryItem(String barCode, String goodsName, String count, String manufacturer, String standard, String retailPrice) {
+        this.barCode = barCode;
+        this.goodsName = goodsName;
+        this.count = count;
+        this.manufacturer = manufacturer;
+        this.standard = standard;
+        this.retailPrice = retailPrice;
+    }
+
+    public RepertoryItem() {
+    }
+
     public String getManufacturer() {
         return manufacturer;
     }
