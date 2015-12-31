@@ -24,7 +24,7 @@
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:textSize="17sp"
-                tools:text="barCode :"
+                android:text="条形码 :"
                 />
 
             <TextView
@@ -35,7 +35,7 @@
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:textSize="17sp"
-                tools:text="goodsname :"
+                android:text="商品名称 :"
                 />
 
             <TextView
@@ -46,7 +46,7 @@
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:textSize="17sp"
-                tools:text="count :"
+                android:text="数量 :"
                 />
 
         </LinearLayout>
@@ -71,7 +71,7 @@
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:textSize="17sp"
-                tools:text="manu :"
+                android:text="生产厂商 :"
                 />
 
             <TextView
@@ -82,7 +82,7 @@
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:textSize="17sp"
-                tools:text="standard :"
+                android:text="标准 :"
                 />
 
             <TextView
@@ -93,7 +93,7 @@
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:textSize="17sp"
-                tools:text="retailPrice :"
+                android:text="零售价 :"
                 />
         </LinearLayout>
 
