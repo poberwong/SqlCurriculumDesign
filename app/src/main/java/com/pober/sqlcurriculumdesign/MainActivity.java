@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -170,7 +171,8 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
                        // replaceFragment(new ContentFragment(null, items));
                     } else if (tableName.equals(DBInfo.Table.EXPORT_TABLE_NAME)) {
                         List<OperateItem> items = service.exportQuery(getArgs(tableName + "."), null);
-                        Toast.makeText(MainActivity.this, items.size()+"", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, items.size()+"出售", Toast.LENGTH_SHORT).show();
+                        Log.i("sql", getArgs(tableName + "."));
                         //replaceFragment(new ContentFragment(null, items));
                     }
                 } else {
