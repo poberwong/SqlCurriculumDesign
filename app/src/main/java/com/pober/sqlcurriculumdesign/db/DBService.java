@@ -74,20 +74,27 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
 
     /**
      * 插入一条出售记录
-     * @param item
+     * @param items
      * db.execSQL("insert into ? (?,?,?,?,?) values(?,?,?,?,?)", new Object[]{DBInfo.Table.IMPORT_TABLE_CREATE ,ExportItem.SEQ_CODE, ExportItem.BAR_CODE, ExportItem.DATE, ExportItem.EXPORT_PRICE, ExportItem.COUNT, item.getSeqCode(), item.getBarCode(), item.getDate(), item.getExportPrice(), item.getCount()});
      */
-    public synchronized void insertExport(ExportItem item) {
+    public synchronized boolean insertExports(List<ExportItem> items) {
         db = helper.getWritableDatabase();
-        values.clear();//清空values
+        try {
+            for (ExportItem item : items) {
+                values.clear();//清空values
+                values.put(ExportItem.BAR_CODE, item.getBarCode());
+                values.put(ExportItem.DATE, item.getDate());
+                values.put(ExportItem.EXPORT_PRICE, item.getPrice());
+                values.put(ExportItem.COUNT, item.getCount());
+                db.insert(DBInfo.Table.IMPORT_TABLE_CREATE, null, values);
+            }
+            db.close();
+            return true;
+        }catch (Exception e){
+            db.close();
+            return false;
+        }
 
-        values.put(ExportItem.BAR_CODE, item.getBarCode());
-        values.put(ExportItem.DATE, item.getDate());
-        values.put(ExportItem.EXPORT_PRICE, item.getPrice());
-        values.put(ExportItem.COUNT, item.getCount());
-
-        db.insert(DBInfo.Table.IMPORT_TABLE_CREATE, null, values);
-        db.close();
     }
 
     public synchronized void insertRepe( RepertoryItem item){

@@ -2,72 +2,111 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
-    android:padding="40dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="40dp">
 
     <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_bar_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:met_floatingLabel="normal"
         android:hint="条形码"
-        />
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        app:met_floatingLabel="normal" />
 
     <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        app:met_floatingLabel="normal"
         android:hint="销售数量"
+        android:inputType="numberDecimal"
         android:singleLine="true"
-        />
+        app:met_floatingLabel="normal" />
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="8dp"
         android:layout_margin="25dp"
-        >
+        card_view:cardCornerRadius="8dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_goods_name"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:singleLine="true"
-                android:ellipsize="end"
-                android:textSize="17sp"
-                android:text="商品名称 :"
-                />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tv_export_price"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="商品名称 :"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_goods_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="7dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
                 android:layout_marginBottom="10dp"
-                android:singleLine="true"
-                android:ellipsize="end"
-                android:textSize="17sp"
-                android:text="零售价 :"
-                />
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tv_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:ellipsize="end"
-                android:textSize="17sp"
-                android:text="日期 :"
-                />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="零售价 :"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_export_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="7dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="日期 :"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="7dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -77,8 +116,8 @@
         android:id="@+id/cb_account"
         android:layout_width="196dp"
         android:layout_height="64dp"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:cpb_cornerRadius="48dp"
@@ -90,10 +129,10 @@
         android:id="@+id/action_add_onece"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:layout_gravity="right|bottom"
-        fab:fab_plusIconColor="@color/white"
+        android:layout_marginTop="40dp"
         fab:fab_colorNormal="@color/half_blue"
-        fab:fab_colorPressed="@color/blue"/>
+        fab:fab_colorPressed="@color/blue"
+        fab:fab_plusIconColor="@color/white" />
 
 </LinearLayout>

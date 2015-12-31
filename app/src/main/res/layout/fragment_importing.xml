@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         app:met_floatingLabel="normal"
         android:inputType="numberDecimal"
+        android:singleLine="true"
         android:hint="条形码"
         />
 
@@ -23,6 +24,7 @@
         android:id="@+id/et_goods_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
         app:met_floatingLabel="normal"
         android:hint="商品名"
         />
@@ -31,6 +33,7 @@
         android:id="@+id/et_manu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
         app:met_floatingLabel="normal"
         android:hint="生产厂商"
         />
@@ -39,6 +42,7 @@
         android:id="@+id/et_standard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
         app:met_floatingLabel="normal"
         android:hint="商品规格"
         />
@@ -48,6 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
+        android:singleLine="true"
         app:met_floatingLabel="normal"
         android:hint="零售价"
         />
@@ -56,6 +61,7 @@
         android:id="@+id/et_import_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
         android:inputType="numberDecimal"
         app:met_floatingLabel="normal"
         android:hint="进价"
@@ -65,6 +71,7 @@
         android:id="@+id/et_count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
         android:inputType="numberDecimal"
         app:met_floatingLabel="normal"
         android:hint="采购数量"
@@ -74,6 +81,7 @@
         android:id="@+id/et_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
         app:met_floatingLabel="normal"
         android:inputType="date"
         android:hint="日期"

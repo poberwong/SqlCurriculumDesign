@@ -17,6 +17,7 @@ import com.pober.sqlcurriculumdesign.MainActivity;
 import com.pober.sqlcurriculumdesign.R;
 import com.pober.sqlcurriculumdesign.models.ImportItem;
 import com.pober.sqlcurriculumdesign.models.RepertoryItem;
+import com.pober.sqlcurriculumdesign.utils.EasyUtils;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.List;
@@ -107,13 +108,6 @@ public class ImportingFragment extends Fragment {
         eTDate.setText("");
     }
 
-    public void showSnackBar(View view, String text, int colorRes){
-        Snackbar snackbar=  Snackbar.make(view, text, Snackbar.LENGTH_SHORT);
-        snackbar.getView().setBackgroundColor(getResources().getColor(colorRes));
-        ((LinearLayout)snackbar.getView()).setGravity(Gravity.CENTER);
-        snackbar.show();
-    }
-
     private void submitMessage(){
         ImportItem importItem = null;
         RepertoryItem repertoryItem = null;
@@ -150,9 +144,9 @@ public class ImportingFragment extends Fragment {
            fbSubmit.setIcon(R.drawable.fab_tag_followed);
            fbSubmit.setColorNormal(getResources().getColor(R.color.green));
            fbSubmit.setColorPressed(getResources().getColor(R.color.half_green));
-           showSnackBar(rootView, "入库成功...", R.color.half_green);
+           EasyUtils.showSnackBar(getActivity(), rootView, "入库成功...", R.color.half_green);
        } else {
-           showSnackBar(rootView, "入库失败...", R.color.half_red);
+           EasyUtils.showSnackBar(getActivity(), rootView, "入库失败...", R.color.half_red);
        }
     }
 }
