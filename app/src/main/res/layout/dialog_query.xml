@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:orientation="vertical">
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_goods_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="商品名称"
+        android:singleLine="true"
+        app:met_floatingLabel="normal" />
+
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_bar_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="条形码"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        app:met_floatingLabel="normal" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/et_from_time"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:hint="起始时间"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            app:met_floatingLabel="normal" />
+
+        <TextView
+            android:id="@+id/tv_from_to"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text=" ～ "
+            />
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/et_to_time"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:hint="截止时间"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            app:met_floatingLabel="normal" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

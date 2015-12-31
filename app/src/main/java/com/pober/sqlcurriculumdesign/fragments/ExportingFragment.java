@@ -90,7 +90,7 @@ public class ExportingFragment extends Fragment {
                     }
                     if (MainActivity.service.insertExports(cart)){
                         simulateSuccessProgress(cBAccount);
-                        EasyUtils.showSnackBar(getActivity(), rootView, "应收货款"+getTotalPrice(), R.color.half_green);
+                        EasyUtils.showSnackBar(getActivity(), rootView, "应收货款 "+getTotalPrice(), R.color.half_green);
                         cart.clear();
                     } else {
                         EasyUtils.showSnackBar(getActivity(), rootView, "结账失败...", R.color.half_red);
@@ -121,7 +121,7 @@ public class ExportingFragment extends Fragment {
 
     private void fillWithRepeInfo(RepertoryItem item){
         tvGoodsName.setText(item.getGoodsName());
-        tvExportPrice.setText(item.getManufacturer());
+        tvExportPrice.setText(item.getRetailPrice());
         tvDate.setText(DateFormat.format("yyyy-MM-dd  HH:mm", new Date()).toString());
     }
 
