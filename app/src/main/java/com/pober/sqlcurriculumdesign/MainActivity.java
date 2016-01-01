@@ -165,37 +165,31 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
             private void query() {
                 if (canQueryDate) {
                     if (tableName.equals(DBInfo.Table.IMPORT_TABLE_NAME)) {
-                        List<OperateItem> items = service.importQuery(getArgs(tableName+"."), null);
-                        Toast.makeText(MainActivity.this, items.size()+"", Toast.LENGTH_SHORT).show();
+                        List<OperateItem> items = service.importQuery(getArgs(tableName + "."), null);
                         replaceFragment(new ContentFragment(null, items));
                     } else if (tableName.equals(DBInfo.Table.EXPORT_TABLE_NAME)) {
                         List<OperateItem> items = service.exportQuery(getArgs(tableName + "."), null);
-                        Toast.makeText(MainActivity.this, items.size()+"出售", Toast.LENGTH_SHORT).show();
-                        Log.i("sql", getArgs(tableName + "."));
                         replaceFragment(new ContentFragment(null, items));
                     }
                 } else {
-                    List<RepertoryItem> items = service.RepeQuery(getArgs(tableName+"."), null);
-                    Toast.makeText(MainActivity.this, items.size()+"", Toast.LENGTH_SHORT).show();
+                    List<RepertoryItem> items = service.RepeQuery(getArgs(tableName + "."), null);
                     replaceFragment(new ContentFragment(items, null));
                 }
                 mMaterialDialog.dismiss();
             }
 
-            private void replaceFragment(Fragment fragment){
+            private void replaceFragment(Fragment fragment) {
                 FragmentTransaction transaction;
                 transaction = mFragmentManager.beginTransaction();
-                transaction.replace(R.id.fragment_container, fragment);
-                if (currentFragment instanceof OperationFragment){
-                    transaction.addToBackStack(null).commit();
-                } else transaction.commit();
+                transaction.replace(R.id.fragment_container, fragment).commit();
+                currentFragment = fragment;
             }
 
-            private String getArgs( String tableName) {
+            private String getArgs(String tableName) {
                 String selection = "";
                 boolean first = false, second = false;
                 if (!etGoodsName.getText().toString().isEmpty()) {
-                    selection += RepertoryItem.GOODS_NAME + "= '" + etGoodsName.getText().toString()+"'";
+                    selection += RepertoryItem.GOODS_NAME + "= '" + etGoodsName.getText().toString() + "'";
                     first = true;
                 }
 
@@ -203,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
                     if (first == true) {
                         selection += " and ";
                     }
-                    selection += tableName+ImportItem.BAR_CODE + "= " + etBarCode.getText().toString();
+                    selection += tableName + ImportItem.BAR_CODE + "= " + etBarCode.getText().toString();
                     second = true;
                 }
 
@@ -211,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
                     if (second == true) {
                         selection += " and ";
                     }
-                    selection += ImportItem.DATE + " between '" + etFromTime.getText().toString() +"' and '"+ etToTime.getText().toString()+"'";
+                    selection += ImportItem.DATE + " between '" + etFromTime.getText().toString() + "' and '" + etToTime.getText().toString() + "'";
 //                    selection += ImportItem.DATE + " < " + etToTime.getText().toString() + " and " + ImportItem.DATE + " > " + etFromTime.getText().toString();
                 }
                 return selection;
@@ -223,5 +217,16 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
             }
         });
         mMaterialDialog.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (currentFragment instanceof OperationFragment){
+            super.onBackPressed();
+        }else {
+            Fragment fragment= OperationFragment.newInstance();
+            mFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit();
+            currentFragment = fragment;
+        }
     }
 }
