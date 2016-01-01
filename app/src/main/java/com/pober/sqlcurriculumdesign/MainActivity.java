@@ -22,14 +22,12 @@ import com.pober.sqlcurriculumdesign.fragments.OperationFragment;
 import com.pober.sqlcurriculumdesign.models.ImportItem;
 import com.pober.sqlcurriculumdesign.models.OperateItem;
 import com.pober.sqlcurriculumdesign.models.RepertoryItem;
-import com.pober.sqlcurriculumdesign.utils.EasyUtils;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.yalantis.contextmenu.lib.ContextMenuDialogFragment;
 import com.yalantis.contextmenu.lib.MenuObject;
 import com.yalantis.contextmenu.lib.MenuParams;
 import com.yalantis.contextmenu.lib.interfaces.OnMenuItemClickListener;
 
-import java.net.ServerSocket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -213,7 +211,8 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
                     if (second == true) {
                         selection += " and ";
                     }
-                    selection += ImportItem.DATE + "< " + etFromTime.getText().toString() + " and " + ImportItem.DATE + "> " + etToTime.getText().toString();
+                    selection += ImportItem.DATE + " between '" + etFromTime.getText().toString() +"' and '"+ etToTime.getText().toString()+"'";
+//                    selection += ImportItem.DATE + " < " + etToTime.getText().toString() + " and " + ImportItem.DATE + " > " + etFromTime.getText().toString();
                 }
                 return selection;
             }

@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             android:layout_weight="2"
-            android:hint="起始时间"
+            android:hint="起始时间:mmddhhmm"
             android:inputType="numberDecimal"
             android:singleLine="true"
             app:met_floatingLabel="normal" />
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             android:layout_weight="2"
-            android:hint="截止时间"
+            android:hint="截止时间:mmddhhmm"
             android:inputType="numberDecimal"
             android:singleLine="true"
             app:met_floatingLabel="normal" />

@@ -226,6 +226,8 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
         List<OperateItem> items = new ArrayList<>();
         OperateItem item;
         db = helper.getReadableDatabase();
+        Log.i("sqldate", "select seqCode, importTable.barCode, importPrice, importTable.count, date from " + DBInfo.Table.IMPORT_TABLE_NAME + ", " + DBInfo.Table.REPE_TABLE_NAME
+                + " where " + DBInfo.Table.IMPORT_TABLE_NAME + "." + "barCode= " + DBInfo.Table.REPE_TABLE_NAME + "." + "barCode and "+ selection);
         Cursor cursor = db.rawQuery("select seqCode, importTable.barCode, importPrice, importTable.count, date from " + DBInfo.Table.IMPORT_TABLE_NAME + ", " + DBInfo.Table.REPE_TABLE_NAME
                 + " where " + DBInfo.Table.IMPORT_TABLE_NAME + "." + "barCode= " + DBInfo.Table.REPE_TABLE_NAME + "." + "barCode and "+ selection, selectionArgs);
 //        Cursor cursor= db.query(DBInfo.Table.IMPORT_TABLE_NAME, null, selection,selectionArgs,null,null,null);
