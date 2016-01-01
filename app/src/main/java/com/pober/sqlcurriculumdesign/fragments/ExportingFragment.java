@@ -117,7 +117,7 @@ public class ExportingFragment extends Fragment {
     private void fillWithRepeInfo(RepertoryItem item){
         tvGoodsName.setText(item.getGoodsName());
         tvExportPrice.setText(item.getRetailPrice());
-        tvDate.append(DateFormat.format("MM/dd HH:mm", new Date()).toString());
+        tvDate.setText(DateFormat.format("yyyy/MM/dd HH:mm", new Date()).toString());
     }
 
     private void simulateSuccessProgress(final CircularProgressButton button) {
@@ -176,6 +176,7 @@ public class ExportingFragment extends Fragment {
         etCount.setText("");
         tvGoodsName.setText("");
         tvExportPrice.setText("");
+        tvDate.setText("");
         cBAccount.setProgress(0);
     }
 }

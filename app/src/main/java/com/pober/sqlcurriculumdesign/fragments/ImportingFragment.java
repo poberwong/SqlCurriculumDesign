@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.pober.sqlcurriculumdesign.models.RepertoryItem;
 import com.pober.sqlcurriculumdesign.utils.EasyUtils;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,7 +27,7 @@ import java.util.List;
 public class ImportingFragment extends Fragment {
     View rootView;
     private FloatingActionButton fbSubmit;
-    private MaterialEditText eTBarCode, eTGoodsName, eTManu, eTStandard, eTRetailPrice, eTImportPrice, eTPrice, eTCount, eTDate;
+    private MaterialEditText eTBarCode, eTGoodsName, eTManu, eTStandard, eTRetailPrice, eTImportPrice, eTCount, eTDate;
     private boolean isInRepe= false;
     public static ImportingFragment newInstance(){
         return new ImportingFragment();
@@ -55,6 +57,7 @@ public class ImportingFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
+                eTDate.setText(DateFormat.format("yyyy/MM/dd HH:mm", new Date()).toString());
                 List<RepertoryItem> items = MainActivity.service.RepeQuery(RepertoryItem.BAR_CODE+ "= ?", new String[]{eTBarCode.getText().toString()});
                 if (items.size()> 0){
                     Toast.makeText(getActivity(), items.size()+"", Toast.LENGTH_SHORT).show();
@@ -80,6 +83,7 @@ public class ImportingFragment extends Fragment {
         eTImportPrice = (MaterialEditText) view.findViewById(R.id.et_import_price);
         eTCount = (MaterialEditText) view.findViewById(R.id.et_count);
         eTDate = (MaterialEditText) view.findViewById(R.id.et_date);
+        eTDate.setEnabled(false);
     }
 
     private void resetFab(){
@@ -102,7 +106,6 @@ public class ImportingFragment extends Fragment {
         eTRetailPrice.setText("");
         eTCount.setText("");
         eTImportPrice.setText("");
-        eTDate.setText("");
     }
 
     // TODO: 16/1/1 deal with regular expression
@@ -115,7 +118,7 @@ public class ImportingFragment extends Fragment {
             importItem.setBarCode(eTBarCode.getText().toString());
             importItem.setPrice(eTImportPrice.getText().toString());
             importItem.setCount(eTCount.getText().toString());
-            importItem.setDate(eTDate.getText().toString());
+            importItem.setDate(EasyUtils.date2Str(eTDate.getText().toString()));
         } else {
             Toast.makeText(getActivity(), "请补全信息~", Toast.LENGTH_SHORT).show();
             return;

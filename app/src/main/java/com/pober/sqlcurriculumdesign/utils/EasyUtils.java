@@ -17,6 +17,11 @@ public class EasyUtils {
         snackbar.show();
     }
 
+    /**
+     * convert a year/month/day hour:minute into monthdayhourminute
+     * @param date
+     * @return
+     */
     public static String date2Str(String date){
         date = date.replace("/", "");
         date = date.replace(" ", "");
@@ -24,6 +29,11 @@ public class EasyUtils {
         return date.substring(date.length()- 8);
     }
 
+    /**
+     * convert a monthdayhourminute into year/month/day hour:minute
+     * @param date
+     * @return
+     */
     public static String strToDate(String date){
         date= "2016/"+date.substring(0,2)+"/"+date.substring(2,4)+" "+date.substring(4,6)+":"+date.substring(6);
         return date;

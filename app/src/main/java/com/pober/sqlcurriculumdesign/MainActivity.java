@@ -60,9 +60,6 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
         menuParams.setClosableOutside(true);
         // set other settings to meet your needs
         initMenuFragment();
-
-
-        Log.i("date" ,EasyUtils.strToDate("01011211"));
     }
 
 

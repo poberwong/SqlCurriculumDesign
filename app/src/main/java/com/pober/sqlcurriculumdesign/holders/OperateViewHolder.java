@@ -3,6 +3,7 @@ package com.pober.sqlcurriculumdesign.holders;
 import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.pober.sqlcurriculumdesign.models.ExportItem;
 import com.pober.sqlcurriculumdesign.models.ImportItem;
 import com.pober.sqlcurriculumdesign.models.OperateItem;
 import com.pober.sqlcurriculumdesign.models.RepertoryItem;
+import com.pober.sqlcurriculumdesign.utils.EasyUtils;
 
 /**
  * Created by Bob on 15/12/29.
@@ -45,10 +47,10 @@ public class OperateViewHolder extends RecyclerView.ViewHolder {
     //你没看错，数据绑定也被整合进来了，
     //将adapter里的数据根据position获取到后传进来。当然，也可以根据具体情况来做调整。
     public void onBinViewHolder(OperateItem data){
-        tvSeqCode.append(data.getSeqCode() + "");
-        tvBarCode.append(data.getBarCode());
-        tvCount.append(data.getCount());
-        tvDate.append(data.getDate());
+        tvSeqCode.setText("顺序码: " + data.getSeqCode());
+        tvBarCode.setText("条形码: "+ data.getBarCode());
+        tvCount.setText("数量: " + data.getCount());
+        tvDate.setText("日期: " + EasyUtils.strToDate(data.getDate()));
         if (data instanceof ImportItem){
             tvPrice.setText("进价: "+ data.getPrice());
         }else{

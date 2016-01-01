@@ -84,7 +84,7 @@
         android:singleLine="true"
         app:met_floatingLabel="normal"
         android:inputType="date"
-        android:hint="日期 2016/01/01 12:12"
+        android:hint="日期"
         />
 
     <com.getbase.floatingactionbutton.FloatingActionButton

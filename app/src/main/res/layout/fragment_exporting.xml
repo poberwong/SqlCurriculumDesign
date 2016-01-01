@@ -104,7 +104,6 @@
                     android:paddingLeft="7dp"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="2016/"
                     android:textSize="17sp" />
 
             </LinearLayout>
