@@ -22,7 +22,7 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:textSize="17sp"
-            tools:text="顺序码: " />
+            android:text="顺序码: " />
 
         <LinearLayout
             android:layout_width="match_parent"

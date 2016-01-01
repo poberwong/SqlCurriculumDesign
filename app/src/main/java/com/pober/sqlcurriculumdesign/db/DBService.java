@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.view.View;
 
 import com.pober.sqlcurriculumdesign.R;
@@ -202,7 +203,7 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
 
     public synchronized List<OperateItem> exportQuery(String selection, String[] selectionArgs) {
         List<OperateItem> items = new ArrayList<>();
-        ExportItem item;
+        OperateItem item;
         db = helper.getReadableDatabase();
         Cursor cursor = db.rawQuery("select seqCode, exportTable.barCode, exportPrice, exportTable.count, date from " + DBInfo.Table.EXPORT_TABLE_NAME + ", " + DBInfo.Table.REPE_TABLE_NAME
                 + " where " + DBInfo.Table.EXPORT_TABLE_NAME + "." + "barCode= " + DBInfo.Table.REPE_TABLE_NAME + "." + "barCode and " + selection, selectionArgs);
@@ -223,10 +224,10 @@ public class DBService {//存的时候不要存入id，获取时需要取出id�
 
     public synchronized List<OperateItem> importQuery(String selection, String[] selectionArgs) {
         List<OperateItem> items = new ArrayList<>();
-        ImportItem item;
+        OperateItem item;
         db = helper.getReadableDatabase();
         Cursor cursor = db.rawQuery("select seqCode, importTable.barCode, importPrice, importTable.count, date from " + DBInfo.Table.IMPORT_TABLE_NAME + ", " + DBInfo.Table.REPE_TABLE_NAME
-                + " where " + selection, selectionArgs);
+                + " where " + DBInfo.Table.IMPORT_TABLE_NAME + "." + "barCode= " + DBInfo.Table.REPE_TABLE_NAME + "." + "barCode and "+ selection, selectionArgs);
 //        Cursor cursor= db.query(DBInfo.Table.IMPORT_TABLE_NAME, null, selection,selectionArgs,null,null,null);
         while (cursor.moveToNext()) {
             item = new ImportItem();

@@ -168,17 +168,17 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
                     if (tableName.equals(DBInfo.Table.IMPORT_TABLE_NAME)) {
                         List<OperateItem> items = service.importQuery(getArgs(tableName+"."), null);
                         Toast.makeText(MainActivity.this, items.size()+"", Toast.LENGTH_SHORT).show();
-                       // replaceFragment(new ContentFragment(null, items));
+                        replaceFragment(new ContentFragment(null, items));
                     } else if (tableName.equals(DBInfo.Table.EXPORT_TABLE_NAME)) {
                         List<OperateItem> items = service.exportQuery(getArgs(tableName + "."), null);
                         Toast.makeText(MainActivity.this, items.size()+"出售", Toast.LENGTH_SHORT).show();
                         Log.i("sql", getArgs(tableName + "."));
-                        //replaceFragment(new ContentFragment(null, items));
+                        replaceFragment(new ContentFragment(null, items));
                     }
                 } else {
                     List<RepertoryItem> items = service.RepeQuery(getArgs(tableName+"."), null);
                     Toast.makeText(MainActivity.this, items.size()+"", Toast.LENGTH_SHORT).show();
-//                    replaceFragment(new ContentFragment(items, null));
+                    replaceFragment(new ContentFragment(items, null));
                 }
                 mMaterialDialog.dismiss();
             }

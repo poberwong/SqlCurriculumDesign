@@ -26,7 +26,7 @@ public class RepeViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void initView(View view){
-        tvBarCode = (TextView) view.findViewById(R.id.tv_barcode);
+        tvBarCode = (TextView) view.findViewById(R.id.tv_bar_code);
         tvGoodsName = (TextView) view.findViewById(R.id.tv_goods_name);
         tvCount = (TextView) view.findViewById(R.id.tv_count);
         tvManu = (TextView) view.findViewById(R.id.tv_manu);
@@ -43,11 +43,11 @@ public class RepeViewHolder extends RecyclerView.ViewHolder {
     //你没看错，数据绑定也被整合进来了，
     //将adapter里的数据根据position获取到后传进来。当然，也可以根据具体情况来做调整。
     public void onBinViewHolder(RepertoryItem data){
-        tvBarCode.setText(data.getBarCode());
-        tvGoodsName.setText(data.getGoodsName());
-        tvCount.setText(data.getCount());
-        tvManu.setText(data.getManufacturer());
-        tvStandard.setText(data.getStandard());
-        tvRetailPrice.setText(data.getRetailPrice());
+        tvBarCode.append(data.getBarCode());
+        tvGoodsName.append(data.getGoodsName());
+        tvCount.append(data.getCount());
+        tvManu.append(data.getManufacturer());
+        tvStandard.append(data.getStandard());
+        tvRetailPrice.append(data.getRetailPrice());
     }
 }

@@ -29,7 +29,7 @@ public class OperateViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void initView(View view){
-        tvBarCode = (TextView) view.findViewById(R.id.tv_barcode);
+        tvBarCode = (TextView) view.findViewById(R.id.tv_bar_code);
         tvSeqCode = (TextView) view.findViewById(R.id.tv_seq_code);
         tvCount = (TextView) view.findViewById(R.id.tv_count);
         tvPrice = (TextView) view.findViewById(R.id.tv_price);
