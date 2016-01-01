@@ -1,5 +1,6 @@
 package com.pober.sqlcurriculumdesign;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Trace;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +54,11 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
         mFragmentManager = getSupportFragmentManager();
         currentFragment = OperationFragment.newInstance();
         mFragmentManager.beginTransaction().replace(R.id.fragment_container, currentFragment).commit();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
+            localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
+        }
 
         MenuParams menuParams = new MenuParams();
         menuParams.setActionBarSize((int) getResources().getDimension(R.dimen.actionbar_size));

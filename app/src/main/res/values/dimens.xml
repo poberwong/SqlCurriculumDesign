@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="actionbar_size">56dp</dimen>
+    <dimen name="padding_to_top">17dp</dimen>
 </resources>
