@@ -1,15 +1,12 @@
 package com.pober.sqlcurriculumdesign.fragments;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
@@ -108,6 +105,7 @@ public class ImportingFragment extends Fragment {
         eTDate.setText("");
     }
 
+    // TODO: 16/1/1 deal with regular expression
     private void submitMessage(){
         ImportItem importItem = null;
         RepertoryItem repertoryItem = null;

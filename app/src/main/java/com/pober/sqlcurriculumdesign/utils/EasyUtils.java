@@ -16,4 +16,16 @@ public class EasyUtils {
         ((LinearLayout)snackbar.getView()).setGravity(Gravity.CENTER);
         snackbar.show();
     }
+
+    public static String date2Str(String date){
+        date = date.replace("/", "");
+        date = date.replace(" ", "");
+        date = date.replace(":", "");
+        return date.substring(date.length()- 8);
+    }
+
+    public static String strToDate(String date){
+        date= "2016/"+date.substring(0,2)+"/"+date.substring(2,4)+" "+date.substring(4,6)+":"+date.substring(6);
+        return date;
+    }
 }

@@ -114,11 +114,10 @@ public class ExportingFragment extends Fragment {
         cBAccount = (CircularProgressButton) rootView.findViewById(R.id.cb_account);
     }
 
-
     private void fillWithRepeInfo(RepertoryItem item){
         tvGoodsName.setText(item.getGoodsName());
         tvExportPrice.setText(item.getRetailPrice());
-        tvDate.setText(DateFormat.format("yyyy-MM-dd  HH:mm", new Date()).toString());
+        tvDate.append(DateFormat.format("MM/dd HH:mm", new Date()).toString());
     }
 
     private void simulateSuccessProgress(final CircularProgressButton button) {

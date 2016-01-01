@@ -22,6 +22,7 @@ import com.pober.sqlcurriculumdesign.fragments.OperationFragment;
 import com.pober.sqlcurriculumdesign.models.ImportItem;
 import com.pober.sqlcurriculumdesign.models.OperateItem;
 import com.pober.sqlcurriculumdesign.models.RepertoryItem;
+import com.pober.sqlcurriculumdesign.utils.EasyUtils;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.yalantis.contextmenu.lib.ContextMenuDialogFragment;
 import com.yalantis.contextmenu.lib.MenuObject;
@@ -59,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
         menuParams.setClosableOutside(true);
         // set other settings to meet your needs
         initMenuFragment();
+
+
+        Log.i("date" ,EasyUtils.strToDate("01011211"));
     }
 
 
