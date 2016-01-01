@@ -1,10 +1,8 @@
 package com.pober.sqlcurriculumdesign.fragments;
 
 import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
@@ -12,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.webkit.WebView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +23,6 @@ import com.pober.sqlcurriculumdesign.utils.EasyUtils;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -88,12 +84,12 @@ public class ExportingFragment extends Fragment {
                         EasyUtils.showSnackBar(getActivity(), rootView, "购物车为空...", R.color.half_red);
                         return;
                     }
-                    if (MainActivity.service.insertExports(cart)){
+                    if (MainActivity.service.exportGoods(getActivity(), rootView, cart)){
                         simulateSuccessProgress(cBAccount);
                         EasyUtils.showSnackBar(getActivity(), rootView, "应收货款 "+getTotalPrice(), R.color.half_green);
                         cart.clear();
                     } else {
-                        EasyUtils.showSnackBar(getActivity(), rootView, "结账失败...", R.color.half_red);
+                        EasyUtils.showSnackBar(getActivity(), rootView, "出货失败,部分商品库存不足...", R.color.half_red);
                     }
 
                 }
