@@ -39,13 +39,14 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
     private ContextMenuDialogFragment mMenuDialogFragment;
     private FragmentManager mFragmentManager;
     private Fragment currentFragment;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
 
         service = DBService.getInstance(this);
         mFragmentManager = getSupportFragmentManager();
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
         importQuery.setResource(R.drawable.tab_explore_icon);
         importQuery.setBgColor(getResources().getColor(R.color.half_green));
 
-        MenuObject exportQuery = new MenuObject("出货查询");
+        MenuObject exportQuery = new MenuObject("售货查询");
         exportQuery.setResource(R.drawable.tab_feed_icon);
         exportQuery.setBgColor(getResources().getColor(R.color.half_black));
 
@@ -133,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
         }
     }
 
-    public void showQueryDialog(String title, final String tableName, final boolean canQueryDate) {
+    public void showQueryDialog(final String title, final String tableName, final boolean canQueryDate) {
         final MaterialEditText etGoodsName, etBarCode, etFromTime, etToTime;
         TextView view;
         View contentView = getLayoutInflater().inflate(R.layout.dialog_query, null);
@@ -179,6 +180,7 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
             }
 
             private void replaceFragment(Fragment fragment) {
+                mToolbar.setTitle(title);
                 FragmentTransaction transaction;
                 transaction = mFragmentManager.beginTransaction();
                 transaction.replace(R.id.fragment_container, fragment).commit();
@@ -227,6 +229,7 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
             Fragment fragment= OperationFragment.newInstance();
             mFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit();
             currentFragment = fragment;
+            mToolbar.setTitle("进 货");
         }
     }
 }

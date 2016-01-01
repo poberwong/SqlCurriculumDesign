@@ -164,7 +164,7 @@ public class ExportingFragment extends Fragment {
         if (!etBarCode.getText().toString().isEmpty() && !etCount.getText().toString().isEmpty() && !tvExportPrice.getText().toString().isEmpty()){
             item = new ExportItem(etBarCode.getText().toString(), tvExportPrice.getText().toString(), tvDate.getText().toString(), etCount.getText().toString());
             cart.add(item);
-            EasyUtils.showSnackBar(getActivity(), rootView, "记录添加成功", R.color.half_green);
+            EasyUtils.showSnackBar(getActivity(), rootView, "已添加一件商品", R.color.half_green);
             cBAccount.setProgress(0);
         } else {
             Toast.makeText(getActivity(), "请补全信息~", Toast.LENGTH_SHORT).show();
