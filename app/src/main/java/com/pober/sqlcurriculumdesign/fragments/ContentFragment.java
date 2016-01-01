@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.pober.sqlcurriculumdesign.R;
 import com.pober.sqlcurriculumdesign.adapters.DataAdapter;
@@ -37,6 +38,7 @@ public class ContentFragment extends Fragment {
     private DataAdapter mDataAdapter;
     private Toolbar mToolbar;
     private RecyclerView mRecyclerView;
+    private ImageView emptyView;
 
     public ContentFragment(){}
     @SuppressLint("ValidFragment")
@@ -56,6 +58,14 @@ public class ContentFragment extends Fragment {
         ViewGroup rootView= (ViewGroup) inflater.inflate(R.layout.fragment_content, null);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_content);
         mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+        emptyView = (ImageView) rootView.findViewById(R.id.empty_view);
+        if (repeItems!= null && repeItems.size() == 0){
+            emptyView.setVisibility(View.VISIBLE);
+        }
+
+        if (operateItems!= null && operateItems.size() == 0){
+            emptyView.setVisibility(View.VISIBLE);
+        }
         return rootView;
     }
 
